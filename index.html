@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adhi Lutfi Ihsani | Photography Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* =======================
+           GLOBAL STYLES
+        ======================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f1a;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 100px 60px;
+            position: relative;
+        }
+
+        /* Grid Background */
+        .grid-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        /* =======================
+           NAVBAR
+        ======================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 26, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            transition: 0.3s;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: linear-gradient(45deg, #7c3aed, #ec4899);
+        }
+
+        /* =======================
+           HERO SECTION
+        ======================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(11,15,26,0.9), rgba(11,15,26,0.7)),
+                        url('https://lh3.googleusercontent.com/sitesv/AA5AbUAx6nGUPOPOOIXtsF4k9UqkXoWNsSSth2WXVjssY2JPtqBz2advL2webYwvtdDRadMD45xLqgQzHK1mqw_HXisjxpKHMKcFvWH81NbBSLOyybrIiUU9UElN3cgIJufLpNZ6cblWY-xruOuyH-m6_uxcpVvGVHuUM--WuBGyfDOUMAQ2pyf09lEXPdBr_QjOJbW_i7etVHo5bRntIosdL-IN7cwTGW5c7WQe7BU=w1280') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .hero h3 {
+            margin-top: 20px;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffd400;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .instagram {
+            position: absolute;
+            bottom: 30px;
+            right: 60px;
+            font-size: 14px;
+        }
+
+        /* =======================
+           ABOUT SECTION
+        ======================= */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1 1 500px;
+        }
+
+        .about-text h2 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #d1d5db;
+            margin-bottom: 30px;
+        }
+
+        .about-info {
+            display: flex;
+            gap: 50px;
+        }
+
+        .about-images {
+            flex: 1 1 400px;
+            position: relative;
+            text-align: center;
+        }
+
+        .about-images img {
+            max-width: 300px;
+            border-radius: 20px;
+        }
+
+        .name-tag {
+            margin-top: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* =======================
+           SOFTWARE SECTION
+        ======================= */
+        .software-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .software-text h2 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .software-icons {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .software-icons img {
+            width: 80px;
+            padding: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .software-icons img:hover {
+            transform: translateY(-5px);
+        }
+
+        .software-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* =======================
+           GALLERY SECTION
+        ======================= */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 20px;
+        }
+
+        .gallery-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gallery-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-center {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+        }
+
+        .gallery-overlay h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+        }
+
+        /* =======================
+           REVEAL ANIMATION
+        ======================= */
+        .reveal-left,
+        .reveal-right,
+        .reveal-up {
+            opacity: 0;
+            transition: all 1s ease;
+        }
+
+        .reveal-left { transform: translateX(-80px); }
+        .reveal-right { transform: translateX(80px); }
+        .reveal-up { transform: translateY(60px); }
+
+        .reveal-left.active,
+        .reveal-right.active,
+        .reveal-up.active {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        /* =======================
+           RESPONSIVE
+        ======================= */
+        @media (max-width: 992px) {
+            section {
+                padding: 80px 30px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-info {
+                flex-direction: column;
+            }
+        }
+
+        /* ================= FOOTER ================= */
+        .footer {
+            background: #070b14;
+            padding: 60px 60px 20px;
+            color: #d1d5db;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer h3, .footer h4 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            flex: 1 1 300px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #d1d5db;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #a78bfa;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* ================= BOOKING SECTION ================= */
+        .booking-section {
+            padding: 100px 60px;
+            color: #fff;
+        }
+
+        .booking-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* WhatsApp Contact */
+        .booking-contact {
+            flex: 1 1 350px;
+        }
+
+        .booking-contact h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .booking-contact p {
+            color: #d1d5db;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .wa-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .wa-button i {
+            font-size: 22px;
+        }
+
+        .wa-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Calendar */
+        .calendar-wrapper {
+            flex: 1 1 400px;
+        }
+
+        .calendar {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .calendar-header button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .calendar-days,
+        .calendar-dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+
+        .calendar-days div {
+            font-weight: 600;
+            padding: 10px 0;
+            color: #9ca3af;
+        }
+
+        .calendar-dates div {
+            padding: 12px 0;
+            margin: 4px;
+            border-radius: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .calendar-dates div:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* Booked Dates */
+        .calendar-dates .booked {
+            background: linear-gradient(45deg, #7c3aed, #ec4899);
+            color: #fff;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .calendar-dates .booked::after {
+            content: "●";
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+        }
+
+        /* Today Highlight */
+        .calendar-dates .today {
+            border: 2px solid #ffd400;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .booking-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-camera"></i> @lutfiiadhi_
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#software">Fotografi</a></li>
+            <li><a href="#graduation">Galery</a></li>
+            <li><a href="#booking">Booking</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section id="home" class="hero grid-bg">
+        <div class="hero-content reveal-left">
+            <h1>Photography<br>Portfolio</h1>
+            <h3>ADHI LUTFI IHSANI</h3>
+            <span class="badge">PHOTOGRAPHER</span>
+            <div class="contact-info">
+                <p><i class="fa-regular fa-envelope"></i> projectromasta@gmail.com</p>
+            </div>
+        </div>
+        <div class="instagram">
+            <i class="fa-brands fa-instagram"></i> romasta.graduation_
+        </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="grid-bg">
+        <div class="about-container">
+            <div class="about-text reveal-left">
+                <h2>About Me</h2>
+                <p>
+                    Hi! I'm Adhi Lutfi, a freelance photographer and videographer based in
+                    Semarang, Central Java. I've been working in this field for nearly three
+                    years, focusing on graduation, wedding, and event photography.
+                </p>
+                <div class="about-info">
+                    <div>
+                        <h3>Contact</h3>
+                        <p>adhilutfi04@gmail.com</p>
+                        <p>0895415453995</p>
+                    </div>
+                    <div>
+                        <h3>Media Sosial</h3>
+                        <p>@lutfiiadhi_</p>
+                        <p>@lutfiiadhi_</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-images reveal-right">
+                <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAx6nGUPOPOOIXtsF4k9UqkXoWNsSSth2WXVjssY2JPtqBz2advL2webYwvtdDRadMD45xLqgQzHK1mqw_HXisjxpKHMKcFvWH81NbBSLOyybrIiUU9UElN3cgIJufLpNZ6cblWY-xruOuyH-m6_uxcpVvGVHuUM--WuBGyfDOUMAQ2pyf09lEXPdBr_QjOJbW_i7etVHo5bRntIosdL-IN7cwTGW5c7WQe7BU=w1280" alt="Profile">
+                <div class="name-tag">ADHI LUTFI IHSANI</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SOFTWARE ================= -->
+    <section id="software" class="grid-bg">
+        <div class="software-container">
+            <div class="software-text reveal-left">
+                <h2>Software Skill</h2>
+                <p>Beberapa aplikasi yang saya gunakan untuk editing foto dan video.</p>
+                <div class="software-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Photoshop_CC_icon.png" alt="Photoshop">
+                    <img src="https://cdn-1.webcatalog.io/catalog/adobe-lightroom/adobe-lightroom-icon-filled-256.png?v=1773016987265" alt="Lightroom">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Photoshop_CC_icon.png" alt="Photoshop">
+                    <img src="https://cdn-1.webcatalog.io/catalog/adobe-lightroom/adobe-lightroom-icon-filled-256.png?v=1773016987265" alt="Lightroom">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Photoshop_CC_icon.png" alt="Photoshop">
+                    <img src="https://cdn-1.webcatalog.io/catalog/adobe-lightroom/adobe-lightroom-icon-filled-256.png?v=1773016987265" alt="Lightroom">
+                </div>
+            </div>
+            <div class="software-image reveal-right">
+                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80" alt="Software Preview">
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section id="graduation" class="grid-bg">
+        <div class="gallery-container">
+            <div class="gallery-column reveal-left">
+                <div class="gallery-item"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDZuCUFCNxsJFxKiutafEZ-eYhdK9KvInXyRxWxnCEoUO-81NXrHxgbxD_wjI9_qIEWMrrSXr0UZU_RXgxJdXsXsvIFHHP5xBLzGrVSdtcjY2BTHYvF9mnB6c8v5ZG12jLEGXLReUn-SgR2INS4wgkj_0ZEsIGp356UUwdNpQgtVu6dHC-wxTUNkqUH7LrDIW_GeCaTWabFMop9DUptUV3EFOQnlGvUow=w1280" alt=""></div>
+                <div class="gallery-row">
+                    <div class="gallery-item"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUB1d0r_kyI1N-pB0RqRkKejK9k6Ta5rzmjtqbeKLHaagtg0vL8i6F4fIc9rOowqPBXxdD8XGyoEO_Iv577z34s1c-GV85YyJ7OwGGw0xLQKuRFh5Sa8w2Hnss7qmJ46cVu859-E7D4V9T3NahgI-oMBu2Fzq9sWIJh5p9Kwwi_tz6o7BZbCHpZwIPTQaxoZzhvuCv3DmySwC9XOg77sEHljqf2oyd1gyA=w1280" alt=""></div>
+                    <div class="gallery-item"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDY6WI3-iQBryI6FdHgCfg28o2fJEWummGpUMrFL6SsMqLsX_MP6YzVhAM8RYS6ZtFNgikKxEOKYw2T1vyY-w6rlBDhyh9-crzIWq8rpanKQHGYmTKCRA4zWNu9e7PeA3XGq6jjgxJFkQddS-T3Uz_BsoxA4PhI5jy-J3QMrrg8UNuMquw4tfrHFufOFmeEkoXmKJ_lnv9Ziut76SkmnZRkUMEYn4nEZDIN=w1280" alt=""></div>
+                </div>
+                <div class="gallery-item"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAmvGcQBesKnd0qq4yAii8GIXieEX-5DB6QYOS0XamTEQjGQIS_ZxkTWCNPqL1hSPZFJyyozFjGPlqorI96tXyAS91YY2LJB5wDUKwKWAGcChC2w6GuvMITJ8lcWorTyQ0vRdMYnM-zioBXJS-qAD-MlRQpLf8pq1fHKTQIMWkmY78uS0Aso0FKtk4Uj6D3A8g-ThVYiY7WW5Oi6UQrq7ytscJXCU2CQRh0=w1280" alt=""></div>
+            </div>
+
+            <div class="gallery-center reveal-up">
+                <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCFOAMTDYKYXnMqwDE7wV4I-yscMECPO-Hham4XCSE-vAdSKzTPS9mqCr28yT4_kK1MpJguTqQh6EzfFjqu8fxBsoaDuky3_U82vmR25Btv5Q4MlxaG0zz4VertxEwPnMRnaZsd7Igji0n3wFIMa74XIJKrP8zyLI8wQhpy8hgq21wvEUz23FHDhoB8ueA4Eh-CwodJNb60OaSO_jtCepUD39b--awou0QJN8g=w1280" alt="">
+                <div class="gallery-overlay">
+                    <h2>Graduation</h2>
+                    <p>Photoshoot</p>
+                </div>
+            </div>
+
+            <div class="gallery-column reveal-right">
+                <div class="gallery-item"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDQY6UpzRfuOI4ZuEy43Y0xmxEy_0zPcKe5BEl7sJsTdsB8ncZAAfLfad_FhHD_uvfdUPEtAD9tm_TDqDJ7OjW7n01VI8SDbsc_kEGMDRRbg1Ikx4nSof69lredPTdtsoG2lboPBvXPZJr0L_cZ8Teo-92Ho5DulE9FlE5sXvH2FFWQZQMyry3vg0bxI5JPdbAQAaZZLwQQPIzRC7RcY8AVMgPsttj8UPgsNQM=w1280" alt=""></div>
+                <div class="gallery-item"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAoc2g1kvbeeZE9p1p7qzep8-Gu-AihwHiq4CmgVBKX-nfwBEJBblYsXdxGp3HR9_7RkffNax2qQV7BsxzgqkR4hWutXO47EEFZN_HJmJ6imMOMSP1O-rW-aOsAMlhL6wt1Q7h5WuAgk3FBsRKl2qgux2KbCTP6zD46SX_ZUklRX4-0wTIIhxtOSfxWAsfok6wW5S3nlDThDVHNl8hQEDYYU-unSzif3sgSe84=w1280" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= BOOKING SECTION ================= -->
+    <section id="booking" class="booking-section grid-bg">
+        <div class="booking-container">
+            
+            <!-- WhatsApp Booking -->
+            <div class="booking-contact reveal-left">
+                <h2>Booking Schedule</h2>
+                <p>
+                    Berikut adalah jadwal yang sudah terisi. Silakan hubungi saya melalui
+                    WhatsApp untuk melakukan pemesanan pada tanggal yang tersedia.
+                </p>
+
+                <a href="https://wa.me/62895415453995" target="_blank" class="wa-button">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Booking via WhatsApp
+                </a>
+            </div>
+
+            <!-- Calendar -->
+            <div class="calendar-wrapper reveal-right">
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <button id="prevMonth"><i class="fa-solid fa-chevron-left"></i></button>
+                        <h3 id="monthYear"></h3>
+                        <button id="nextMonth"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-days">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div id="calendarDates" class="calendar-dates"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Adhi Lutfi Ihsani</h3>
+                <p>
+                    Freelance photographer & videographer based in Semarang,
+                    specializing in graduation, wedding, and event photography.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#software">Software</a></li>
+                    <li><a href="#graduation">Gallery</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Me</h4>
+                <div class="social-icons">
+                    <a href="https://wa.me/62895415453995" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/lutfiiadhi_" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:adhilutfi04@gmail.com">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Adhi Lutfi Ihsani. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Reveal animation on scroll
+        function revealOnScroll() {
+            const elements = document.querySelectorAll(
+                '.reveal-left, .reveal-right, .reveal-up'
+            );
+
+            elements.forEach((el) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const visiblePoint = 120;
+
+                if (elementTop < windowHeight - visiblePoint) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Active navbar link on scroll
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // ================= BOOKING CALENDAR =================
+        const bookedDates = ['2026-04-01', '2026-04-07', '2026-04-15', '2026-04-23', '2026-04-01', '2026-05-06', '2026-05-17'];
+
+        let currentDate = new Date();
+
+        const monthYear = document.getElementById('monthYear');
+        const calendarDates = document.getElementById('calendarDates');
+        const prevMonth = document.getElementById('prevMonth');
+        const nextMonth = document.getElementById('nextMonth');
+
+        function renderCalendar(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            monthYear.textContent = date.toLocaleString('default', {
+                month: 'long',
+                year: 'numeric'
+            });
+
+            calendarDates.innerHTML = "";
+
+            // Empty cells before first day
+            for (let i = 0; i < firstDay; i++) {
+                calendarDates.innerHTML += "<div></div>";
+            }
+
+            const today = new Date();
+
+            for (let day = 1; day <= lastDate; day++) {
+                const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayElement = document.createElement('div');
+                dayElement.textContent = day;
+
+                // Highlight booked dates
+                if (bookedDates.includes(fullDate)) {
+                    dayElement.classList.add('booked');
+                }
+
+                // Highlight today
+                if (
+                    day === today.getDate() &&
+                    month === today.getMonth() &&
+                    year === today.getFullYear()
+                ) {
+                    dayElement.classList.add('today');
+                }
+
+                calendarDates.appendChild(dayElement);
+            }
+        }
+
+        prevMonth.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate);
+        });
+
+        nextMonth.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate);
+        });
+
+        // Initial render
+        renderCalendar(currentDate);
+    </script>
+
+</body>
+</html>
