@@ -525,6 +525,167 @@
                 text-align: center;
             }
         }
+        
+        /* ================= MOBILE NAVBAR ================= */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* ================= RESPONSIVE STYLES ================= */
+        @media (max-width: 992px) {
+            section {
+                padding: 80px 20px;
+            }
+        
+            /* Navbar */
+            .menu-toggle {
+                display: block;
+                color: #fff;
+            }
+        
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                background: rgba(11, 15, 26, 0.95);
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px 0;
+                transform: translateY(-200%);
+                transition: transform 0.3s ease-in-out;
+            }
+        
+            .nav-links.active {
+                transform: translateY(0);
+            }
+        
+            /* Hero Section */
+            .hero {
+                text-align: center;
+                justify-content: center;
+                padding: 0 20px;
+            }
+        
+            .hero h1 {
+                font-size: 40px;
+            }
+        
+            .hero h3 {
+                font-size: 16px;
+            }
+        
+            .instagram {
+                position: static;
+                margin-top: 20px;
+            }
+        
+            /* About Section */
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .about-info {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+        
+            .about-images img {
+                max-width: 220px;
+            }
+        
+            /* Software Section */
+            .software-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .software-icons {
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+            }
+        
+            .software-text h2,
+            .about-text h2,
+            .booking-contact h2 {
+                font-size: 36px;
+            }
+        
+            /* Gallery Section */
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+        
+            .gallery-row {
+                flex-direction: column;
+            }
+        
+            .gallery-overlay h2 {
+                font-size: 36px;
+            }
+        
+            /* Booking Section */
+            .booking-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .calendar {
+                padding: 15px;
+            }
+        
+            .calendar-days div,
+            .calendar-dates div {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+        
+            /* Footer */
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        
+            .social-icons {
+                margin-top: 10px;
+            }
+        }
+        
+        /* ================= SMALL DEVICES ================= */
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+        
+            .badge {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+        
+            .calendar-header h3 {
+                font-size: 16px;
+            }
+        }
+        
+        .booking-container,
+        .gallery-container,
+        .software-container,
+        .about-container,
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -534,7 +695,10 @@
         <div class="logo">
             <i class="fa-solid fa-camera"></i> @hadriansyah
         </div>
-        <ul class="nav-links">
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#software">Fotografi</a></li>
@@ -831,6 +995,21 @@
 
         // Initial render
         renderCalendar(currentDate);
+
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+    
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     </script>
 
 </body>
